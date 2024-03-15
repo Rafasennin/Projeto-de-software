@@ -1,0 +1,44 @@
+<template>
+    <v-container>
+        <v-card class="mx-auto" max-width="auto">
+            <v-container fluid>
+                <v-row dense class="d-flex justify-center">
+                    <v-col v-for="card in cards" :key="card.title" cols="12" sm="6" md="4" lg="3">
+                    <v-card>
+                        <v-img :src="card.src" class="align-end" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                            height="200px" cover>
+                            <v-card-title class="text-white" v-text="card.title"></v-card-title>
+                        </v-img>
+
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+
+                            <v-btn color="surface-variant" icon="mdi-heart" size="small" variant="text"></v-btn>
+
+                            <v-btn color="surface-variant" icon="mdi-bookmark" size="small" variant="text"></v-btn>
+
+                            <v-btn color="surface-variant" icon="mdi-share-variant" size="small" variant="text"></v-btn>
+                        </v-card-actions>
+                    </v-card>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </v-card>
+    </v-container>
+</template>
+
+<script>
+
+export default {
+    name: 'BannerComponent',
+
+    data: () => ({
+        cards: [
+            { title: 'Designer', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
+            { title: 'Sofisticação', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
+            { title: 'Criatividade', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
+        ],
+
+    }),
+}
+</script>
