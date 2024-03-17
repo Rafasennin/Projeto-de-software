@@ -2,8 +2,7 @@
   <v-container>
     <v-app-bar :elevation="2" :height="100">
       <v-img :width="auto" aspect-ratio="16/9" cover
-       src="https://cdn.vuetifyjs.com/images/parallax/material.jpg">
-       <v-app-bar-title class="d-flex justify-center mt-5 text-white text-h3 ">Cortes e Navalhas</v-app-bar-title>
+       src="../assets/Header_logo.jpeg">
       </v-img>
     </v-app-bar>
 
