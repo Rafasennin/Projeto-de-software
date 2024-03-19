@@ -8,7 +8,7 @@
 
     <v-banner
     color="pink-darken-1"
-    icon="mdi-information-outline"
+    icon="mdi-information-outline" 
     lines="two"
   >
     <v-banner-text class="text-black text-h5">
@@ -17,25 +17,6 @@
     que garantem uma experiência personalizada e revitalizante para os clientes.
     </v-banner-text>
   </v-banner>
-
-    <v-layout class="overflow-visible" style="height: 70px;">
-    <v-bottom-navigation class="bg-grey h-100" mode="shift">
-      <v-btn>
-        <v-icon>mdi-content-cut</v-icon>
-        <h1>Serviços</h1>
-      </v-btn>
-
-      <v-btn>
-        <v-icon>mdi-account-tie</v-icon>
-        <h1>Profissionais</h1>
-      </v-btn>
-
-      <v-btn>
-        <v-icon>mdi-calendar</v-icon>
-        <h1>Agenda</h1>
-      </v-btn>
-    </v-bottom-navigation>
-  </v-layout>
   </v-container>
 </template>
 
@@ -43,7 +24,9 @@
 
 export default {
   name: 'HeaderComponent',
-
+  components: {
+   
+   },
   data: () => ({
    
     

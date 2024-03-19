@@ -1,11 +1,18 @@
 <template>
-    <v-container>
-        <v-card class="mx-auto" max-width="auto">
+  <HeaderComponent />
+  <MenuBanner />
+  <v-container>
+    <v-card class="mx-auto" max-width="auto">
+      <v-row dense class="d-flex justify-center">
+        <h1>Profissionais</h1>
+      </v-row>
+    </v-card>
+    <v-card class="mx-auto" max-width="auto">
             <v-container fluid>
                 <v-row dense class="d-flex justify-center">
                     <v-col v-for="card in cards" :key="card.title" cols="12" sm="6" md="4" lg="3">
                     <v-card>
-                        <v-img src="../assets/barba.jpg" class="align-end" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                        <v-img :src="card.src" class="align-end" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                             height="200px" cover>
                             <v-card-title class="text-white" v-text="card.title"></v-card-title>
                         </v-img>
@@ -24,21 +31,27 @@
                 </v-row>
             </v-container>
         </v-card>
-    </v-container> 
+  </v-container>
 </template>
 
-<script>
+
+  <script>
+import HeaderComponent from '../components/HeaderComponent.vue'
+import MenuBanner from '../components/MenuBanner.vue'
 
 export default {
-    name: 'BannerComponent',
-
-    data: () => ({
-        cards: [
-            { title: 'Barba', src:'../assets/barba.jpg', flex: 12 },
-            { title: 'Cabelo', src:'../assets/cabelo.jpg', flex: 6 },
-            { title: 'Cabelo + Barba', src:'../assets/barba_cabelo.jpg', flex: 6 },
+  components: {
+    MenuBanner, HeaderComponent
+   },
+  data: () => ({
+    cards: [
+            { title: 'João', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
+            { title: 'Miguel', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
+            { title: 'Fernado', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
         ],
-
-    }),
+   
+    
+  }),
 }
 </script>
+
