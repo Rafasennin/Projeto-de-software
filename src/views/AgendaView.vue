@@ -44,19 +44,20 @@
     </v-sheet>
   </div>
 
-   
+   <FooterComponent />
   </v-container>
 </template>
 
 <script>
 import HeaderComponent from '../components/HeaderComponent.vue'
 import MenuBanner from '../components/MenuBanner.vue'
+import FooterComponent from '../components/Footer.vue'
 import { useDate } from 'vuetify'
 import { VCalendar } from 'vuetify/labs/VCalendar'
 
 export default {
   components: {
-    MenuBanner, HeaderComponent,  VCalendar
+    MenuBanner, HeaderComponent,  VCalendar, FooterComponent
   },
   data: () => ({
       type: 'month',
