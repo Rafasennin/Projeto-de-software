@@ -1,30 +1,35 @@
 <template>
-    <v-container>
-      <v-layout class="overflow-visible" style="height: 70px;">
+  <v-container>
+    <v-layout class="overflow-visible" style="height: 70px;">
       <v-bottom-navigation class="bg-grey h-100" mode="shift">
-        <v-btn>
+
+        <v-btn :to="linkServicos" class="text-decoration-none">
           <v-icon>mdi-content-cut</v-icon>
-         <router-link to="/"><h1>Serviços</h1></router-link> 
+          <h1  class="text-h6 text-sm-h5">Serviços</h1 >
         </v-btn>
-  
-        <v-btn>
+
+        <v-btn :to="linkProfissionais" class="text-decoration-none">
           <v-icon>mdi-account-tie</v-icon>
-          <router-link to="/profissionais"><h1>Profissionais</h1></router-link>  
+          <h1 class="text-h6 text-sm-h5">Profissionais</h1>
         </v-btn>
-  
-        <v-btn>
+
+        <v-btn :to="linkAgenda" class="text-decoration-none">
           <v-icon>mdi-calendar</v-icon>
-          <router-link to="/agenda"><h1>Agenda</h1></router-link> 
+          <h1  class="text-h6 text-sm-h5">Agenda</h1>
         </v-btn>
       </v-bottom-navigation>
     </v-layout>
-    </v-container>
-  </template>
-  
-  <script>
-  
-  export default ({
-  name: 'MenuBanner',
+  </v-container>
+</template>
 
-});
-  </script>
+<script>
+export default {
+  data() {
+    return {
+      linkServicos: "/",
+      linkProfissionais: "/profissionais",
+      linkAgenda: "/agenda"
+    };
+  }
+};
+</script>

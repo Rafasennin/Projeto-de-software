@@ -45,9 +45,9 @@ export default {
    },
   data: () => ({
     cards: [
-            { title: 'João', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
-            { title: 'Miguel', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
-            { title: 'Fernado', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
+            { title: 'João', src: require('../assets/barber_1.jpg'), flex: 12 },
+            { title: 'Miguel', src: require('../assets/barber_2.jpg'), flex: 6 },
+            { title: 'Fernado', src: require('../assets/barber_3.avif'), flex: 6 },
         ],
    
     

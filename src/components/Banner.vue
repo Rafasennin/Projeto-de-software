@@ -5,7 +5,7 @@
                 <v-row dense class="d-flex justify-center">
                     <v-col v-for="card in cards" :key="card.title" cols="12" sm="6" md="4" lg="3">
                     <v-card>
-                        <v-img src="../assets/barba.jpg" class="align-end" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                        <v-img :src="card.src" class="align-end" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                             height="200px" cover>
                             <v-card-title class="text-white" v-text="card.title"></v-card-title>
                         </v-img>
@@ -34,9 +34,9 @@ export default {
 
     data: () => ({
         cards: [
-            { title: 'Barba', src:'../assets/barba.jpg', flex: 12 },
-            { title: 'Cabelo', src:'../assets/cabelo.jpg', flex: 6 },
-            { title: 'Cabelo + Barba', src:'../assets/barba_cabelo.jpg', flex: 6 },
+            { title: 'Barba', src: require('../assets/barba.jpg'), flex: 12 },
+            { title: 'Cabelo', src:require('../assets/cabelo_black.jpg'), flex: 6 },
+            { title: 'Cabelo + Barba', src:require('../assets/barba_cabelo.jpg'), flex: 6 },
         ],
 
     }),
