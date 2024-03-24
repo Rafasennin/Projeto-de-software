@@ -39,7 +39,7 @@
       </v-col>
     </v-row>
     <v-row justify="center">
-      <v-btn @click="goToCheckout" color="primary" class="ma-10">Prosseguir para o Checkout</v-btn>
+      <v-btn @click="goToCheckout" color="primary" class="mb-5">Prosseguir para o Checkout</v-btn>
     </v-row>
     <FooterComponent />
   </v-container>
@@ -49,6 +49,7 @@
 import HeaderComponent from '../components/HeaderComponent.vue'
 import MenuBanner from '../components/MenuBanner.vue'
 import FooterComponent from '../components/Footer.vue'
+
 
 
 export default {
@@ -90,11 +91,11 @@ export default {
           console.log(formattedDate);
 
           const selectedData = {
-            date: formattedDate,
-            service: this.selectedService,
-            professional: this.selectedProfessional,
+            date: encodeURIComponent(formattedDate) ,
+            service:encodeURIComponent( this.selectedService),
+            professional: encodeURIComponent(this.selectedProfessional),
+            time: encodeURIComponent (this.selectedTime)
           };
-          console.log(selectedData)
 
           //Rota
           this.$router.push({

@@ -1,7 +1,7 @@
 <template>
     <v-footer class="d-flex flex-column">
       <div class="bg-grey d-flex w-100 align-center px-4">
-        <strong>Descubra mais sobre nossa barbearia!</strong>
+        <strong class="text-h6 d-none d-sm-inline-block">Descubra mais sobre nossa barbearia!</strong>
   
         <v-spacer></v-spacer>
   

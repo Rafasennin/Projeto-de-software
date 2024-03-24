@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import AgendaView from '../views/AgendaView.vue'
 import ProfissionaisView from '../views/ProfissionaisView'
 import CheckoutView from '../views/CheckoutView.vue'
+import ComprovanteView from '@/views/ComprovanteView.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/checkout',
     name: 'checkout',
     component: CheckoutView
+  },
+  {
+    path: '/comprovante',
+    name: 'comprovante',
+    component: ComprovanteView
   }
 ]
 

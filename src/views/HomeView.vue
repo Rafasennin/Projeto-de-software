@@ -1,5 +1,6 @@
 <template>
   <HeaderComponent />
+  <HeaderComponentText />
   <MenuBanner />
   <BannerComponent />
   <FooterComponent />
@@ -14,11 +15,14 @@ import MenuBanner from '../components/MenuBanner.vue'
 import HeaderComponent from '../components/HeaderComponent.vue';
 import BannerComponent from '../components/Banner.vue';
 import FooterComponent from '../components/Footer.vue'
+import HeaderComponentText from '../components/HeaderComponentText.vue'
+
+
 export default defineComponent({
   name: 'HomeView',
 
   components: {
-    HeaderComponent, BannerComponent, MenuBanner,FooterComponent
+    HeaderComponent, BannerComponent, MenuBanner,FooterComponent, HeaderComponentText
   },
 });
 </script>
