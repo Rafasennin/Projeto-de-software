@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-layout class="overflow-visible" style="height: 55px;">
+    <v-layout class="overflow-visible" style="height: 60px;">
       <v-bottom-navigation class="bg-grey h-100" mode="shift">
 
         <v-btn :to="linkServicos" class="text-decoration-none">
