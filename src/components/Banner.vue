@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <v-container class="mt-n8">
         <v-dialog v-model="dialog" max-width="600px">
             <v-card>
                 <v-img :src="selectedCard.src" aspect-ratio="16/9" cover></v-img>
@@ -7,7 +7,7 @@
                 <v-card-text>
                     <strong>Descrição desse serviço: </strong> <br><br>
                     {{ selectedCard.text }}
-                    
+
                 </v-card-text>
                 <v-card-actions>
                     <v-btn color="primary" text @click="dialog = false">Fechar</v-btn>
@@ -26,6 +26,7 @@
                             </v-img>
 
                             <v-card-actions>
+                                <v-btn color="primary" size="small" variant="text">Saiba mais</v-btn>
                                 <v-spacer></v-spacer>
 
                                 <v-btn color="surface-variant" icon="mdi-heart" size="small" variant="text"></v-btn>
@@ -52,30 +53,33 @@ export default {
         dialog: false,
         selectedCard: {},
         cards: [
-            { title: 'Barba', 
-              src: require('../assets/barba.jpg'), 
-              flex: 12,
-              text: 'Na nossa barbearia, dominamos a arte de esculpir e estilizar as mais diversas barbas. Desde o clássico e elegante (stubble) até o imponente (full beard), nossos especialistas são treinados para proporcionar o estilo de barba que melhor se adequa ao formato do seu rosto e à sua personalidade. Oferecemos serviços especializados de barbearia que incluem cortes precisos, contornos definidos e tratamentos de barba para garantir que você saia com uma aparência impecável e confiante.'
- 
-         },
-            { title: 'Cabelo', 
-              src: require('../assets/cabelo_black.jpg'), 
-              flex: 6,
-              text:'Nossa barbearia é reconhecida por oferecer uma variedade de cortes de cabelo que abrangem desde os clássicos até os mais modernos. Seja você um adepto dos cortes tradicionais ou um entusiasta das últimas tendências, nossos cabeleireiros experientes estão preparados para atender às suas necessidades. Oferecemos consultas personalizadas para ajudá-lo a escolher o corte que melhor realça seus traços e complementa seu estilo de vida.'
-             },
-            { title: 'Cabelo + Barba', 
-              src: require('../assets/barba_cabelo.jpg'), 
-              flex: 6,
-              text:'Especializados em combinar cortes de cabelo e estilos de barba, nossa barbearia é o destino ideal para aqueles que desejam uma aparência completa e polida. Nossos profissionais talentosos são treinados para criar harmonia entre o cabelo e a barba, garantindo que ambos estejam alinhados com sua estética pessoal. Dos cortes modernos aos estilos clássicos de barba, oferecemos serviços completos que refletem sua individualidade e ressaltam sua confiança.'
-             },
+            {
+                title: 'Barba',
+                src: require('../assets/barba_2.jpg'),
+                flex: 12,
+                text: 'Na nossa barbearia, dominamos a arte de esculpir e estilizar as mais diversas barbas. Desde o clássico e elegante (stubble) até o imponente (full beard), nossos especialistas são treinados para proporcionar o estilo de barba que melhor se adequa ao formato do seu rosto e à sua personalidade. Oferecemos serviços especializados de barbearia que incluem cortes precisos, contornos definidos e tratamentos de barba para garantir que você saia com uma aparência impecável e confiante.'
+
+            },
+            {
+                title: 'Cabelo',
+                src: require('../assets/cabelo_black.jpg'),
+                flex: 6,
+                text: 'Nossa barbearia é reconhecida por oferecer uma variedade de cortes de cabelo que abrangem desde os clássicos até os mais modernos. Seja você um adepto dos cortes tradicionais ou um entusiasta das últimas tendências, nossos cabeleireiros experientes estão preparados para atender às suas necessidades. Oferecemos consultas personalizadas para ajudá-lo a escolher o corte que melhor realça seus traços e complementa seu estilo de vida.'
+            },
+            {
+                title: 'Cabelo + Barba',
+                src: require('../assets/barba_cabelo.jpg'),
+                flex: 6,
+                text: 'Especializados em combinar cortes de cabelo e estilos de barba, nossa barbearia é o destino ideal para aqueles que desejam uma aparência completa e polida. Nossos profissionais talentosos são treinados para criar harmonia entre o cabelo e a barba, garantindo que ambos estejam alinhados com sua estética pessoal. Dos cortes modernos aos estilos clássicos de barba, oferecemos serviços completos que refletem sua individualidade e ressaltam sua confiança.'
+            },
         ],
 
     }),
     methods: {
-    openModal(card) {
-      this.selectedCard = card;
-      this.dialog = true;
+        openModal(card) {
+            this.selectedCard = card;
+            this.dialog = true;
+        },
     },
-  },
 }
 </script>

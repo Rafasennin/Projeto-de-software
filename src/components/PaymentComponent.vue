@@ -130,6 +130,12 @@
 <script>
 export default {
     name: 'PaymentComponent',
+    props: {
+    decodedData: {
+      type: Object,
+      required: true
+    }
+  },
     data: () => ({
         currentItem: 'tab-Web',
         items: [
@@ -149,7 +155,7 @@ export default {
         boletoName: '',
         boletoCPF: '',
         errorMessage: "",
-        successMessage: ''
+        successMessage: '',
     }),
 
     methods: {
@@ -168,7 +174,8 @@ export default {
                 this.$router.push({
                     name: 'comprovante',
                     query: {
-                        successMessage: this.successMessage
+                        successMessage: this.successMessage,
+                        decodedData: JSON.stringify(this.decodedData) 
                     }
                 });
             }
@@ -182,7 +189,8 @@ export default {
                 this.$router.push({
                     name: 'comprovante',
                     query: {
-                        successMessage: this.successMessage
+                        successMessage: this.successMessage,
+                        decodedData: JSON.stringify(this.decodedData) 
                     }
                     });
             } else {
@@ -199,7 +207,8 @@ export default {
                 this.$router.push({
                     name: 'comprovante',
                     query: {
-                        successMessage: this.successMessage
+                        successMessage: this.successMessage,
+                        decodedData: JSON.stringify(this.decodedData) 
                     }
 
                 });
@@ -222,7 +231,8 @@ export default {
                 this.$router.push({
                     name: 'comprovante',
                     query: {
-                        successMessage: this.successMessage
+                        successMessage: this.successMessage,
+                        decodedData: JSON.stringify(this.decodedData) 
                     }
                 });
             } else {

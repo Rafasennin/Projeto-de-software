@@ -1,7 +1,14 @@
 <template>
   <HeaderComponent />
+  <v-container>
+  <v-card class="mx-auto" max-width="auto">
   <HeaderComponentText />
   <MenuBanner />
+      <v-row dense class="d-flex justify-center">
+        <h1>Serviços</h1>
+      </v-row>
+    </v-card>
+  </v-container>
   <BannerComponent />
   <FooterComponent />
 </template>

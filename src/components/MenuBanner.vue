@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="mt-n9">
     <v-layout class="overflow-visible" style="height: 60px;">
       <v-bottom-navigation class="bg-grey h-100" mode="shift">
 

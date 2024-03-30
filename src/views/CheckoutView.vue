@@ -30,7 +30,7 @@
         </tbody>
       </v-table>
     </v-card>
-    <PaymentComponent />
+    <PaymentComponent :decodedData="decodedData" />
     <FooterComponent />
   </v-container>
 </template>
@@ -60,6 +60,7 @@ export default {
         const service = decodeURIComponent(params.get('service'));
         const professional = decodeURIComponent(params.get('professional'));
         const time = decodeURIComponent(params.get('time'));
+       
 
         // Armazena os dados decodificados no objeto decodedData
         this.decodedData = { date, service, professional, time };

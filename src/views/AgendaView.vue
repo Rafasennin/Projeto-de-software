@@ -1,8 +1,9 @@
 <template>
   <HeaderComponent />
-  <MenuBanner />
   <v-container>
     <v-card class="mx-auto mb-5" max-width="auto">
+      <HeaderComponentText />
+      <MenuBanner />
       <v-row dense class="d-flex justify-center">
         <h1>Agenda</h1>
       </v-row>
@@ -39,20 +40,22 @@
     <v-row justify="center">
       <v-btn @click="goToCheckout" color="primary" class="mb-5">Prosseguir para o Checkout</v-btn>
     </v-row>
-    <FooterComponent />
   </v-container>
+  <FooterComponent />
+
 </template>
 
 <script>
 import HeaderComponent from '../components/HeaderComponent.vue'
 import MenuBanner from '../components/MenuBanner.vue'
 import FooterComponent from '../components/Footer.vue'
+import HeaderComponentText from '../components/HeaderComponentText.vue'
 
 
 
 export default {
   components: {
-    MenuBanner, HeaderComponent, FooterComponent
+    MenuBanner, HeaderComponent, FooterComponent, HeaderComponentText
   },
   data: () => ({
     services: ['Corte de Cabelo R$ 40,00', 'Afeitar a Barba R$ 30,00', 'Cabelo + Barba R$ 55,00'],
@@ -63,7 +66,13 @@ export default {
     newDate: "",
     errorMessage: "",
     selectedTime: "",
-    currentTime: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    currentTime: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    selectedData: {
+      date: "",
+      service: "",
+      professional: "",
+      time: "",
+    }
   }),
 
   methods: {
@@ -101,9 +110,8 @@ export default {
             const selectedMinute = parseInt(this.selectedTime.split(":")[1]);
 
             // Comparar a hora atual com a hora selecionada
-            if (currentHour > selectedHour || (currentHour === selectedHour && currentMinute >= selectedMinute)) {
-              this.errorMessage = "O agendamento só está disponível em horários futuros.";
-            } else {
+
+            if (selectedDate > currentDate || (selectedDate.getTime() === currentDate.getTime() && (currentHour < selectedHour || (currentHour === selectedHour && currentMinute <= selectedMinute)))) {
               this.errorMessage = "";
               const formattedDate = selectedDate.toLocaleDateString('pt-BR', {
                 day: '2-digit',
@@ -112,23 +120,25 @@ export default {
               });
               this.newDate = formattedDate;
 
-              const selectedData = {
-                date: encodeURIComponent(formattedDate),
-                service: encodeURIComponent(this.selectedService),
-                professional: encodeURIComponent(this.selectedProfessional),
-                time: encodeURIComponent(this.selectedTime)
-              };
+
+              this.selectedData.date = encodeURIComponent(formattedDate),
+                this.selectedData.service = encodeURIComponent(this.selectedService),
+                this.selectedData.professional = encodeURIComponent(this.selectedProfessional),
+                this.selectedData.time = encodeURIComponent(this.selectedTime)
+
 
               // Rota
               this.$router.push({
                 name: 'checkout',
-                query: selectedData
+                query: this.selectedData
               });
+            } else {
+              this.errorMessage = "O agendamento só está disponível em horários futuros.";
             }
           }
         }
       }
     }
-    }
   }
+}
 </script>
