@@ -4,17 +4,34 @@ import AgendaView from '../views/AgendaView.vue'
 import ProfissionaisView from '../views/ProfissionaisView'
 import CheckoutView from '../views/CheckoutView.vue'
 import ComprovanteView from '@/views/ComprovanteView.vue'
+import LoginView from '../views/SingIn.vue'
+import EventBus from '@/components/EventBus'
 
 const routes = [
+ 
   {
     path: '/',
     name: 'home',
     component: HomeView
   },
   {
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
+  {
     path: '/agenda',
     name: 'agenda',
-    component: AgendaView
+    component: AgendaView,
+    beforeEnter: (to, from, next) => {
+      // Verificar se o usuário está autenticado
+      const isAuthenticated = EventBus.isAuthenticated; 
+      if (!isAuthenticated) {
+        next({ name: 'login' });
+      } else {
+        next();
+      }
+    }
   },
   {
     path: '/profissionais',

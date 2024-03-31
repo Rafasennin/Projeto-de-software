@@ -1,4 +1,5 @@
 <template>
+  <Login />
   <v-container>
     <v-banner class="d-none d-sm-inline-block">
       <h3 class="text-black text-body-1 text-center d-none d-sm-inline-block">
@@ -11,12 +12,10 @@
 </template>
 
 <script>
-
+import Login from "./LoginComponent.vue"
 export default {
   name: 'HeaderComponentText',
-  components: {
-
-  },
+  components: { Login},
   data: () => ({
 
 
