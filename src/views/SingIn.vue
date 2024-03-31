@@ -1,5 +1,6 @@
 <template>
-    <v-container class="d-flex align-center mb-6 bg-grey h-100">
+    <v-container class="d-flex align-center bg-grey-lighten-1 justify-center h-100">
+        <v-card elevation="10" width="320" height="320" class="d-flex align-center">
         <v-sheet class="mx-auto" width="300">
             <v-form ref="form" fast-fail @submit.prevent>
                 <v-text-field v-model="email" :rules="emailRules" label="E-mail"></v-text-field>
@@ -9,6 +10,7 @@
                 <v-btn class="mt-2" color="primary" type="submit" block @click="signIn">Cadastrar</v-btn>
             </v-form>
         </v-sheet>
+    </v-card>
     </v-container>
 </template>
 
@@ -32,12 +34,10 @@ export default {
         ],
         password: '',
         passwordRules: [
-            value => !!value || 'Password is required.',
+            value => !!value || 'A senha é necessária.',
             value => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(value) || `
-                *Deve ter pelo menos 8 caracteres 
-                *Deve conter pelo menos uma letra maiúscula
-                *Deve conter pelo menos uma letra minúscula 
-                *Deve conter pelo menos um número
+                A senha deve conter ter ao menos 8 caracteres, uma 
+                letra maiúscula, uma minúscula e um número.
             `
         ]
     }),
