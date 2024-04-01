@@ -7,36 +7,37 @@ import ComprovanteView from '@/views/ComprovanteView.vue'
 import LoginView from '../views/SingIn.vue'
 import EventBus from '@/components/EventBus'
 
+function Authorization(to, from, next){
+  const isAuthenticated = EventBus.isAuthenticated; 
+  if (!isAuthenticated) {
+    next({ name: 'login' });
+  } else {
+    next();
+  }
+}
+
 const routes = [
  
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
   },
   {
     path: '/login',
     name: 'login',
-    component: LoginView
+    component: LoginView,
   },
   {
     path: '/agenda',
     name: 'agenda',
     component: AgendaView,
-    beforeEnter: (to, from, next) => {
-      // Verificar se o usuário está autenticado
-      const isAuthenticated = EventBus.isAuthenticated; 
-      if (!isAuthenticated) {
-        next({ name: 'login' });
-      } else {
-        next();
-      }
-    }
+    beforeEnter: Authorization
   },
   {
     path: '/profissionais',
     name: 'profissionais',
-    component: ProfissionaisView
+    component: ProfissionaisView,
   },
   {
     path: '/checkout',
