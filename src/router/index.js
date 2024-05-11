@@ -6,6 +6,7 @@ import CheckoutView from '../views/CheckoutView.vue'
 import ComprovanteView from '@/views/ComprovanteView.vue'
 import LoginView from '../views/SingIn.vue'
 import EventBus from '@/components/EventBus'
+import PooView from '@/views/PooView.vue'
 
 function Authorization(to, from, next){
   const isAuthenticated = EventBus.isAuthenticated; 
@@ -17,6 +18,12 @@ function Authorization(to, from, next){
 }
 
 const routes = [
+
+  {
+    path: '/POO',
+    name: 'POO',
+    component: PooView,
+  },
  
   {
     path: '/',
