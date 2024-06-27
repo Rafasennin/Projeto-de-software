@@ -2,11 +2,7 @@
   <v-container class="mt-n9">
     <v-layout class="overflow-visible" style="height: 60px;">
       <v-bottom-navigation class="bg-grey h-100" mode="shift">
-        <v-btn :to="linkPoo" class="text-decoration-none">
-          <v-icon>mdi-laptop</v-icon>
-          <h1 class="text-h6 d-none d-sm-inline-block">POO</h1>
-        </v-btn>
-
+        
         <v-btn :to="linkServicos" class="text-decoration-none">
           <v-icon>mdi-content-cut</v-icon>
           <h1 class="text-h6 d-none d-sm-inline-block">Serviços</h1>
